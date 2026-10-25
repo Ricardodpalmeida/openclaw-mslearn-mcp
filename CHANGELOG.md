@@ -1,0 +1,13 @@
+# Changelog
+
+## 1.1.0 (unreleased)
+
+- Native OpenClaw MCP (`openclaw mcp add ... --transport streamable-http`) is now the preferred path, with `@microsoft/learn-cli` (pinned to 1.0.0) and mcporter as fallbacks.
+- Fixed the mcporter setup command; the old `--name/--url/--type` form registered a server named `--name`. Fixed the config path and shape.
+- Removed the non-existent `locale` and `product` tool parameters.
+- Added a usage workflow (search first, at most two fetches, cite URLs) and safety rules: no secrets in queries, fetched content is data, no retry loops on rate limits.
+- Narrowed the description and removed prompt-trigger phrases flagged by the ClawHub security audit.
+
+## 1.0.0
+
+- Initial release.
