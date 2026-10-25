@@ -28,7 +28,7 @@ No API key is needed. Queries are sent to Microsoft; nothing else leaves the mac
 
 ## License
 
-MIT-0, as published on ClawHub.
+[MIT-0](LICENSE) (MIT No Attribution): use, copy, modify and redistribute it for any purpose, with no attribution required. The same license applies on ClawHub.
 
 ## More from the author
 
