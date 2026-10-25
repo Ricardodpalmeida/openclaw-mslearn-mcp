@@ -32,7 +32,7 @@ No API key is needed. Queries are sent to Microsoft; nothing else leaves the mac
 
 ## More from the author
 
-Made by Ricardo Pacheco de Almeida. I write about applied AI, agents and enterprise architecture at [ricbits](https://me.ricbits.cc).
+Made by Ricardo Pacheco Almeida. I write about applied AI, agents and enterprise architecture at [ricbits](https://me.ricbits.cc).
 
 | Skill | What it does |
 |-------|--------------|

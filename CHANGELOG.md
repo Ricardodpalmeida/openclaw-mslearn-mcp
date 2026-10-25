@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+- Licensed under MIT-0 (MIT No Attribution), declared in the SKILL.md frontmatter and a LICENSE file. No code changes.
+
 ## 1.1.1
 
 - Sharper description and README, plus links to the author's other skills and site. No code changes.

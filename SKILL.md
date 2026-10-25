@@ -1,6 +1,7 @@
 ---
 name: mslearn-mcp
 description: "Ground answers about Azure, .NET, Microsoft 365, Power Platform, Entra ID, Windows and SQL Server in official Microsoft Learn docs and code samples, through Microsoft's free Learn MCP server (native OpenClaw MCP, no API key). Use when the user asks about a Microsoft product, service, API or CLI, or wants an answer checked against Microsoft Learn."
+license: MIT-0
 homepage: https://github.com/Ricardodpalmeida/openclaw-mslearn-mcp
 metadata:
   {
@@ -78,4 +79,4 @@ More detail, including experimental endpoint options and troubleshooting: `refer
 
 ## More from the author
 
-Made by Ricardo Pacheco de Almeida, who writes about applied AI at [ricbits](https://me.ricbits.cc). Other OpenClaw skills: [whetstone](https://github.com/Ricardodpalmeida/whetstone), [LadybugDB openCypher](https://clawhub.ai/ricardodpalmeida/ladybug-opencypher-updated), [Book Capture for Obsidian](https://clawhub.ai/ricardodpalmeida/book-capture-obsidian), [Excalidraw Diagrams for Obsidian](https://clawhub.ai/ricardodpalmeida/excalidraw-diagrams).
+Made by Ricardo Pacheco Almeida, who writes about applied AI at [ricbits](https://me.ricbits.cc). Other OpenClaw skills: [whetstone](https://github.com/Ricardodpalmeida/whetstone), [LadybugDB openCypher](https://clawhub.ai/ricardodpalmeida/ladybug-opencypher-updated), [Book Capture for Obsidian](https://clawhub.ai/ricardodpalmeida/book-capture-obsidian), [Excalidraw Diagrams for Obsidian](https://clawhub.ai/ricardodpalmeida/excalidraw-diagrams).
