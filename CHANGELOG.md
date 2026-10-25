@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- Sharper description and README, plus links to the author's other skills and site. No code changes.
+
 ## 1.1.0 (unreleased)
 
 - Native OpenClaw MCP (`openclaw mcp add ... --transport streamable-http`) is now the preferred path, with `@microsoft/learn-cli` (pinned to 1.0.0) and mcporter as fallbacks.
