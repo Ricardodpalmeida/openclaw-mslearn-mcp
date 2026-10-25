@@ -63,7 +63,7 @@ To keep a named server, ask the user first, then `mcporter config add mslearn ht
 ## Workflow
 
 1. Search first. Write a specific English query with the product, feature and, when it matters, the version or SKU, for example "Azure Container Apps scale rule KEDA HTTP concurrency" rather than "scaling".
-2. Answer from the search excerpts when they are enough. Fetch a page only when you need full steps, a complete table, or an excerpt that was cut off, and fetch at most two pages per question. With the CLI, narrow a fetch with `--section` and `--max-chars`.
+2. Results mix documentation pages with Microsoft Q&A threads (`learn.microsoft.com/answers/...`). Prefer the documentation page when they disagree, and say when an answer rests only on a Q&A post. Answer from the search excerpts when they are enough. Fetch a page only when you need full steps, a complete table, or an excerpt that was cut off, and fetch at most two pages per question. With the CLI, narrow a fetch with `--section` and `--max-chars`.
 3. For code, use `microsoft_code_sample_search` with `language` set. Prefer the snippet's own SDK version and package names over what you remember.
 4. Cite the learn.microsoft.com URLs you relied on. If the docs do not answer the question, say so instead of filling the gap from memory, and point out when a page describes a preview feature.
 

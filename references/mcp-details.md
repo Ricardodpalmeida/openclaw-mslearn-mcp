@@ -1,6 +1,6 @@
 # Microsoft Learn MCP reference
 
-Facts below were checked against the MicrosoftDocs/mcp README, the `@microsoft/learn-cli` 1.0.0 help output, mcporter 0.16.0 and the OpenClaw 2026.10 CLI docs. Re-check them when any of those change.
+Facts below were checked against a live `tools/list` and `tools/call` on 2026-10-25, the MicrosoftDocs/mcp README, the `@microsoft/learn-cli` 1.0.0 help output, mcporter 0.16.0 and the OpenClaw 2026.10 CLI docs. Re-check them when any of those change.
 
 ## Server
 
@@ -15,7 +15,7 @@ Microsoft documents two experimental options, both subject to change.
 
 | Tool | Input | Notes |
 |------|-------|-------|
-| `microsoft_docs_search` | `query` | Semantic search. Returns excerpts with title and URL. |
+| `microsoft_docs_search` | `query` | Semantic search. Returns excerpts with title and URL, from docs pages and from Microsoft Q&A threads. |
 | `microsoft_docs_fetch` | `url` | Converts one Learn page to markdown. Pages can be long; fetch only what you need. |
 | `microsoft_code_sample_search` | `query`, optional `language` | Official snippets. Set `language` to cut noise. |
 
