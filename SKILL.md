@@ -1,6 +1,6 @@
 ---
 name: mslearn-mcp
-description: "Look up official Microsoft documentation and code samples (Azure, .NET, Microsoft 365, Power Platform, Entra ID, Windows, SQL Server) through the public Microsoft Learn MCP server. Use when the user asks about a Microsoft product, service, API or CLI and the answer should come from current Microsoft Learn pages, or when they ask to verify something against Microsoft docs."
+description: "Ground answers about Azure, .NET, Microsoft 365, Power Platform, Entra ID, Windows and SQL Server in official Microsoft Learn docs and code samples, through Microsoft's free Learn MCP server (native OpenClaw MCP, no API key). Use when the user asks about a Microsoft product, service, API or CLI, or wants an answer checked against Microsoft Learn."
 homepage: https://github.com/Ricardodpalmeida/openclaw-mslearn-mcp
 metadata:
   {
@@ -75,3 +75,7 @@ To keep a named server, ask the user first, then `mcporter config add mslearn ht
 - Tool names and schemas can change. If a call fails with an unknown tool or parameter, re-list the tools (`openclaw mcp probe mslearn`, `mcporter list mslearn --schema` or the CLI `doctor`) and adapt.
 
 More detail, including experimental endpoint options and troubleshooting: `references/mcp-details.md`.
+
+## More from the author
+
+Made by Ricardo Pacheco de Almeida, who writes about applied AI at [ricbits](https://me.ricbits.cc). Other OpenClaw skills: [whetstone](https://github.com/Ricardodpalmeida/whetstone), [LadybugDB openCypher](https://clawhub.ai/ricardodpalmeida/ladybug-opencypher-updated), [Book Capture for Obsidian](https://clawhub.ai/ricardodpalmeida/book-capture-obsidian), [Excalidraw Diagrams for Obsidian](https://clawhub.ai/ricardodpalmeida/excalidraw-diagrams).
