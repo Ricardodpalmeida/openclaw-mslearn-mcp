@@ -1,23 +1,12 @@
-# Microsoft Learn MCP reference
+# Learn MCP setup and recovery
 
-For setup, fallback clients and troubleshooting. The Learn CLI 1.0.0 was tested with live discovery, search, fetch and code search on 2026-10-30. OpenClaw details below follow its [current registry documentation](https://docs.openclaw.ai/cli/mcp/registry); check the installed version before configuration changes.
-
-## Endpoint and tools
-
-`https://learn.microsoft.com/api/mcp` uses Streamable HTTP, needs no key/sign-in and serves public Microsoft Learn content, including Visual Studio and SDKs. HTTP 405 from a browser is expected: use an MCP client.
-
-Discover schemas at runtime. `microsoft_docs_search(query)` returns documentation and Q&A excerpts; `microsoft_docs_fetch(url)` returns page markdown; `microsoft_code_sample_search(query, language?)` returns official snippets. No `locale` or `product` parameters.
-
-Experimental options from [Microsoft](https://github.com/MicrosoftDocs/mcp), subject to change:
-
-- `https://learn.microsoft.com/api/mcp?maxTokenBudget=2000`: limits search response tokens approximately.
-- `https://learn.microsoft.com/api/mcp/openai-compatible`: alternative profile for Deep Research models; unnecessary for OpenClaw.
+Baseline checked 2026-10-30: Learn CLI 1.0.0 discovery, search, fetch and code search. Confirm the installed OpenClaw version before changing configuration; its [registry documentation](https://docs.openclaw.ai/cli/mcp/registry) governs Gateway ownership.
 
 ## OpenClaw native MCP
 
-Use connected tools directly. `list`, `show`, `status` and `doctor` without `--probe` inspect configuration while the Gateway runs. Saved configuration alone does not prove tools are reachable or visible to an agent.
+`openclaw mcp list`, `show`, `status` and `doctor` without `--probe` inspect saved configuration while the Gateway runs. A saved definition does not prove tool reachability or visibility to the intended agent.
 
-Current OpenClaw CLI mutations and live probes require the local Gateway to be stopped. Prefer supported Control UI operations for live setup, or the standalone Learn CLI for this task. Do not stop a running Gateway merely to discover tools. If a maintenance window and setup are authorized:
+Current CLI mutations and live probes require a stopped local Gateway. Prefer supported Control UI setup or the standalone Learn CLI while it runs. During authorized maintenance:
 
 ```bash
 openclaw mcp add mslearn --url https://learn.microsoft.com/api/mcp --transport streamable-http
@@ -25,61 +14,42 @@ openclaw mcp doctor mslearn --probe
 openclaw mcp status --verbose
 ```
 
-Use explicit Streamable HTTP transport; older builds may otherwise assume SSE. Verify agent tool availability after the applicable reload/restart. `openclaw mcp reload` affects only the current CLI process, not another running Gateway.
+Use explicit Streamable HTTP; older builds can default to SSE. Verify tools in the intended agent after the applicable reload/restart. `openclaw mcp reload` affects only its CLI process, not another Gateway. Agent/runtime filters still apply.
 
-Authorized configuration controls:
+Within an authorized configuration change, `openclaw mcp tools mslearn --include 'microsoft_docs_search,microsoft_docs_fetch'` restricts saved tools; `openclaw mcp unset mslearn` removes the definition. Do not reset unrelated configuration.
 
-```bash
-openclaw mcp tools mslearn --include 'microsoft_docs_search,microsoft_docs_fetch'
-openclaw mcp unset mslearn
-```
+## Standalone clients
 
-These change saved definitions. Agent/runtime filters still apply; registration does not guarantee visibility to every agent.
+The [main workflow](../SKILL.md) gives pinned Microsoft CLI commands; `doctor --format json` checks runtime, endpoint, handshake and tools. `mslearn setup` installs Microsoft's own discovery skill and is unnecessary here. Review release notes before changing the pin.
 
-## Microsoft Learn CLI
-
-Node.js 22+, binary `mslearn`, pinned package 1.0.0:
-
-```bash
-npx -y @microsoft/learn-cli@1.0.0 search "<query>" --json
-npx -y @microsoft/learn-cli@1.0.0 fetch "<learn URL>" --section "<heading>" --max-chars 6000
-npx -y @microsoft/learn-cli@1.0.0 code-search "<query>" --language python --json
-npx -y @microsoft/learn-cli@1.0.0 doctor --format json
-```
-
-`doctor` checks runtime, endpoint, handshake and discovery. Review the package changelog before changing the pin. `mslearn setup` installs Microsoft's discovery skill for supported agents; it is unnecessary for this OpenClaw skill.
-
-## mcporter
-
-Use only on hosts already using mcporter. Ad-hoc calls need no saved config:
+For an **existing mcporter host**, call without saving configuration:
 
 ```bash
 mcporter call https://learn.microsoft.com/api/mcp.microsoft_docs_search query="Azure Functions triggers"
 ```
 
-If persistent setup/removal is authorized (syntax baseline: mcporter 0.16.0):
+For requested persistent setup (syntax baseline 0.16.0):
 
 ```bash
 mcporter config add mslearn https://learn.microsoft.com/api/mcp --scope home
 mcporter list mslearn --schema
 mcporter call mslearn.microsoft_code_sample_search query="Python blob upload" language=python --output json
-mcporter config remove mslearn
 ```
 
-Do not use the obsolete `config add --name ... --url ... --type http` form. mcporter reads `./config/mcporter.json` and `~/.mcporter/mcporter.json` in the `mcpServers` shape; OpenClaw's registry is separate.
+Removal: `mcporter config remove mslearn`. Its `./config/mcporter.json` and `~/.mcporter/mcporter.json` use `mcpServers`; OpenClaw's registry is separate. The older `config add --name ... --url ... --type http` form is invalid.
 
-## Troubleshooting
+## Recovery
 
-| Symptom | Action |
-|---------|--------|
-| Saved server, missing agent tools | Check runtime/filter state and reload requirements; a saved definition is insufficient. |
-| Probe refuses while Gateway runs | Use live Control UI or standalone CLI; reserve stopping the Gateway for authorized maintenance. |
-| Connection failure | Run Learn CLI `doctor`; inspect host DNS/proxy settings. |
-| Unknown tool/parameter | Rediscover schemas and adapt. |
-| HTTP 429/repeated timeouts | Stop and report; no retry loop. |
-| HTTP 405 | Use an MCP client, not browser-style endpoint access. |
-| Off-topic search | Include product, feature, version or SKU. |
+| Symptom | Check |
+| --- | --- |
+| Saved server, missing tools | Agent filters, runtime availability and reload requirements |
+| Probe refuses during operation | Use Control UI/standalone CLI; no unrequested Gateway stop |
+| Connection failure | CLI `doctor`, host DNS/proxy |
+| Unknown tool/parameter | Live schema discovery |
+| HTTP 429/repeated timeouts | Stop; report unavailable evidence |
+| HTTP 405 from endpoint in browser | Use an MCP client; browser GET is not discovery |
+| Off-topic results | Add product, feature and version/SKU |
 
-Microsoft also supplies `microsoft-docs`, `microsoft-code-reference` and `microsoft-skill-creator` for its supported agent integrations. Prefer a working built-in Learn connector if OpenClaw provides one.
+Experimental [Microsoft profiles](https://github.com/MicrosoftDocs/mcp) can change: `?maxTokenBudget=2000` approximately limits search tokens; `/openai-compatible` targets Deep Research clients and is unnecessary for this workflow.
 
-Sources: [Microsoft MCP](https://github.com/MicrosoftDocs/mcp), [release notes](https://learn.microsoft.com/en-us/training/support/mcp-release-notes), [CLI](https://www.npmjs.com/package/@microsoft/learn-cli), [OpenClaw registry](https://docs.openclaw.ai/cli/mcp/registry), [MCP](https://modelcontextprotocol.io/).
+Sources: [Microsoft MCP](https://github.com/MicrosoftDocs/mcp), [release notes](https://learn.microsoft.com/en-us/training/support/mcp-release-notes), [CLI](https://www.npmjs.com/package/@microsoft/learn-cli), [OpenClaw registry](https://docs.openclaw.ai/cli/mcp/registry).

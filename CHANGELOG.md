@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.4
+
+- Shorten lookup/setup guidance; remove arbitrary retrieval quotas and retain live schema discovery, source attribution and Gateway ownership constraints.
+
 ## 1.1.3
 
 - Condense instructions and references; discover tools before use and reuse existing setup authorization.
