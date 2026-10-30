@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.3
+
+- Condense instructions and references; discover tools before use and reuse existing setup authorization.
+- Correct current OpenClaw Gateway ownership requirements; retain standalone CLI access during operation.
+- Replace a hard two-page ceiling with evidence-driven retrieval. Verify CLI discovery, search, fetch and code search.
+
 ## 1.1.2
 
 - Licensed under MIT-0 (MIT No Attribution), declared in the SKILL.md frontmatter and a LICENSE file. No code changes.

@@ -4,23 +4,23 @@
 
 An OpenClaw skill that connects agents to Microsoft's free [Learn MCP server](https://github.com/MicrosoftDocs/mcp) for current documentation and official code samples across Azure, .NET, Microsoft 365, Power Platform, Entra ID, Windows and SQL Server.
 
-- **Native MCP, no API key.** One `openclaw mcp add` and the tools show up in every agent, with hot reload and no Gateway restart.
+- **Native MCP, no API key.** Register the server, then verify the intended agent can see its tools. Current CLI setup/probes need a stopped Gateway; use supported Control UI operations or the standalone CLI while it runs.
 - **Fallbacks that work.** Microsoft's own `@microsoft/learn-cli` (pinned) or mcporter, with commands checked against the current releases.
-- **Lean on context.** Search first, fetch at most two pages, trim sections, and cite the learn.microsoft.com URLs.
+- **Lean on context.** Search first, fetch only missing evidence, trim sections, and cite the learn.microsoft.com URLs.
 - **Safe by default.** No secrets in queries, fetched pages treated as data, and no retry loops on rate limits.
 
 ## Install
 
 From ClawHub: `openclaw skills install @ricardodpalmeida/mslearn-mcp`. Or copy this folder into your workspace `skills/` directory.
 
-For the native path, register the server once:
+For the native path, register during authorized Gateway maintenance (see `references/mcp-details.md`):
 
 ```bash
 openclaw mcp add mslearn --url https://learn.microsoft.com/api/mcp --transport streamable-http
 openclaw mcp doctor mslearn --probe
 ```
 
-No API key is needed. Queries are sent to Microsoft; nothing else leaves the machine.
+No API key is needed. Queries and requested documentation URLs are sent to Microsoft; exclude sensitive information.
 
 ## Files
 
