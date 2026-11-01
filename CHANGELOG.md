@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fetch 3 pages at most unless the excerpts lack a fact you cite; answer block (answer, Learn pages, GA or preview, gaps); slashes in prose replaced by words. From the 1 November 2026 skills audit.
+
 ## 1.1.4
 
 - Shorten lookup/setup guidance; remove arbitrary retrieval quotas and retain live schema discovery, source attribution and Gateway ownership constraints.
