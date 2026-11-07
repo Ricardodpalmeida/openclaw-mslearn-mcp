@@ -15,9 +15,10 @@ Models answer Microsoft questions from training data, and Azure tiers, SDK versi
 ## How it works
 
 1. The agent searches Learn first, putting the product, feature and version or tier in the query.
-2. It fetches a full page only when the search excerpts miss the evidence it needs, with no fixed page quota.
+2. It fetches full pages when the search excerpts miss the evidence it needs, normally at most three; additional pages must fill a specific evidence gap.
 3. For code, it picks the language and matches the sample's package and SDK version.
-4. It answers with the pages it used, flags preview features and answers backed only by Q&A posts, and says what is still unresolved.
+4. It checks that the evidence matches the requested version, deployment model and SKU, and explains scope differences when sources disagree.
+5. It answers with the pages it used, flags preview or deprecated features and answers backed only by Q&A posts, and says what is still unresolved. Release status stays "not stated" if the source does not establish it; an empty search is not evidence that a feature is unsupported.
 
 General programming questions need no Learn lookup, so the skill stays out of them. Queries stay generic, without secrets, tenant or customer identifiers or proprietary code. Retrieved text counts as evidence, never as instructions, only `learn.microsoft.com` pages are fetched, and a rate limit or repeated timeouts stop the lookup instead of starting a retry loop.
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.6 (2026-11-07)
+
+- Match evidence to the requested product version, deployment model and SKU; resolve conflicting sources by scope rather than publication date alone.
+- Allow "not stated" and "deprecated" in the answer's status field. Missing search results no longer imply an unsupported feature or force a GA/preview guess.
+
 ## 1.1.5
 
 - Fetch 3 pages at most unless the excerpts lack a fact you cite; answer block (answer, Learn pages, GA or preview, gaps); slashes in prose replaced by words. From the 1 November 2026 skills audit.
