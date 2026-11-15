@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.7 (2026-11-15)
+
+- Documentation only: add README quick-navigation links. Agent instructions, scripts, references, examples, dependencies and configuration are unchanged.
+
 ## 1.1.6 (2026-11-07)
 
 - Match evidence to the requested product version, deployment model and SKU; resolve conflicting sources by scope rather than publication date alone.

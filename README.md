@@ -12,6 +12,10 @@
 
 Models answer Microsoft questions from training data, and Azure tiers, SDK versions and CLI flags change faster than that data. **Microsoft Learn MCP** is an Agent Skill that grounds your agent's answers in Microsoft's current documentation and official code samples, through Microsoft's public [Learn MCP server](https://github.com/MicrosoftDocs/mcp), and cites the pages it used. It covers Azure, .NET, Microsoft 365, Power Platform, Entra ID, Windows and SQL Server, with no API key and no account.
 
+## Quick navigation
+
+[How it works](#how-it-works) · [Install](#install) · [Connect the Learn server](#connect-the-learn-server) · [Package contents](#what-is-inside)
+
 ## How it works
 
 1. The agent searches Learn first, putting the product, feature and version or tier in the query.
