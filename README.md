@@ -14,7 +14,7 @@ Models answer Microsoft questions from training data, and Azure tiers, SDK versi
 
 ## Quick navigation
 
-[How it works](#how-it-works) · [Install](#install) · [Connect the Learn server](#connect-the-learn-server) · [Package contents](#what-is-inside)
+[How it works](#how-it-works) · [Install](#install) · [Connect the Learn server](#connect-the-learn-server) · [Package contents](#what-is-inside) · [Release notes](CHANGELOG.md)
 
 ## How it works
 

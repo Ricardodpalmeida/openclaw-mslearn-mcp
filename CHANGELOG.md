@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.9 (2026-11-16)
+
+- Documentation only: Add a direct release-history link to README navigation and include the existing Multi-cloud Docs cross-link in the registry package. Agent instructions, code, operational references, examples, templates, dependencies and configuration are unchanged.
+
 ## 1.1.7 (2026-11-15)
 
 - Documentation only: add README quick-navigation links. Agent instructions, scripts, references, examples, dependencies and configuration are unchanged.
